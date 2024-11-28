@@ -4,8 +4,11 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
+from core.authUser.views import UserViewSet
+
+router.register("users", UserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("/", include(router.urls)),
+    path("api/", include(router.urls)),
 ]
