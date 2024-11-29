@@ -19,7 +19,8 @@ dependencies = [
     "google-generativeai>=0.8.3",
     "django-filter>=24.3",
     "openai==0.28",
-    "python-dotenv>=1.0.1"
+    "python-dotenv>=1.0.1",
+    "cohere>=5.12.0",
 ]
 requires-python = ">=3.12"
 readme = "README.md"
@@ -49,3 +50,7 @@ loaddata = "python manage.py loaddata {args}"
 dumpdata = "python manage.py dumpdata {args}"
 model = "python manage.py graph_models -a -g -o models.png"
 populate = "python manage.py populate"
+transfer_data = "python manage.py transfer_data"
+populate_dataset = "python manage.py populate_dataset"
+clear_backup_dataset = "python manage.py clear_dataset"
+generate_new_dataset = "python manage.py generate_new_dataset"
