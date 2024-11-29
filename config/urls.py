@@ -14,6 +14,7 @@ from core.bias.views import ClassifyMessageView
 
 router = DefaultRouter()
 from core.authUser.views import UserViewSet
+from core.payments.views import PaymentViewSet
 from core.geminiIA.language.views import LanguageAIViewSet
 from core.geminiIA.mathematics.views import MathAIViewSet
 from core.geminiIA.naturalscience.views import NaturalScienceAIViewSet
@@ -27,6 +28,7 @@ router.register("naturalscienceAI", NaturalScienceAIViewSet)
 router.register("humanscienceAI", HumanScienceAIViewSet)
 router.register("textwritingAI", TextWritingAIViewSet)
 router.register("genericAI", GenericAIAVIewSet, basename="genericAI")
+router.register("payments", PaymentViewSet)
 
 from core.cohereIA.views import DatasetBIASViewSet, GenerateAndTrainModel, ClassifyTextView, CurrentCohereIAViewSet
 

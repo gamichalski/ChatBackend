@@ -50,14 +50,6 @@ class PaymentViewSet(ModelViewSet):
         except Exception as e:
             return Response(e)
 
-
-
-
-
-
-
-
-
 @csrf_exempt
 def webhook_receiver(request):
     if request.method == 'POST':
