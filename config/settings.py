@@ -39,6 +39,8 @@ INSTALLED_APPS = [
 ]
 
 
+
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', 
     'django.middleware.security.SecurityMiddleware',
@@ -97,6 +99,7 @@ REST_FRAMEWORK = {
         'core.authUser.authentication.TokenAuthentication',
         
     ),
+    'DEFAULT_FILTER_BACKENDS': [ 'django_filters.rest_framework.DjangoFilterBackend', ]
     # "DEFAULT_PERMISSION_CLASSES": (
     #     "rest_framework.permissions.IsAuthenticatedOrReadOnly",
     # ),

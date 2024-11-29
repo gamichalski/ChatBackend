@@ -4,6 +4,5 @@ from .models import NaturalScienceAI
 class NaturalScienceAISerializer(ModelSerializer):
     class Meta:
         model = NaturalScienceAI
-        fields: list[str] = ['id', 'user', 'answer', 'response']
+        fields: list[str] = ['id', 'user', 'answer', 'response', 'cover']
 
-        
