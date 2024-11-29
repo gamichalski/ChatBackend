@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'core.geminiIA.humanscience',
     'core.geminiIA.textwriting',
     'core.geminiIA.language',
-    "core.chatgptIA"
+    "core.chatgptIA",
     'drf_spectacular',
     'django_filters',
     'openai',
