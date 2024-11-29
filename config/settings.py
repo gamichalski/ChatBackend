@@ -17,6 +17,7 @@ openai.api_key = os.getenv('GPT_API_KEY')
 AUTH_USER_MODEL = "authUser.User"
 
 INSTALLED_APPS = [
+    "daphne",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'django_filters',
     'openai',
+    'core.chat',
 ]
 
 
@@ -71,6 +73,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+
+ASGI_APPLICATION = "config.asgi.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
 
 DATABASES = {
     'default': {

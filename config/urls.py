@@ -5,6 +5,8 @@ from core.chatgptIA.views import GenericAIAVIewSet
 from core.geminiIA.language.views import LanguageAIViewSet
 from core.geminiIA.mathematics.views import MathAIViewSet
 
+from core.authUser.views import UserViewSet
+from core.chat.router import router as chat_router
 
 from rest_framework.routers import DefaultRouter
 
@@ -29,6 +31,8 @@ from core.cohereIA.views import DatasetBIASViewSet, GenerateAndTrainModel, Class
 
 router.register("dataset", DatasetBIASViewSet)
 router.register("current-cohere-ia", CurrentCohereIAViewSet)
+
+router.registry.extend(chat_router.registry)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
