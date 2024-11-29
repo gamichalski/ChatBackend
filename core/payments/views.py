@@ -24,6 +24,9 @@ class PaymentViewSet(ModelViewSet):
                 transaction_amount=payment.get("transaction_amount"),
                 date_expiration=payment.get("date_expiration"),
                 instalments=payment.get("instalments"),
+                status=payment.get("status"),
+                qrcode_key=payment.get("qrcode_key"),
+                ticket_url=payment.get("ticket_url")
             )
             return Response(payment)
         except Exception as e:
