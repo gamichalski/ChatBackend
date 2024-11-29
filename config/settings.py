@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "corsheaders",
     'core.authUser',
     'core.geminiIA.language',
+    'core.geminiIA.mathematics',
     'drf_spectacular',
     'django_filters',
 ]
