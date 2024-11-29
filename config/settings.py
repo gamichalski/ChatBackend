@@ -23,7 +23,9 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     'core.authUser',
+    'core.geminiIA.language',
     'drf_spectacular',
+    'django_filters',
 ]
 
 
