@@ -3,7 +3,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 import mimetypes
 import google.generativeai as genai
-from core.geminiIA.language.models import model
+from core.geminiIA.language.config_ia import model
 
 @receiver(post_save, sender=LanguagesAI)
 def SendResponse(instance, sender, created, **kwargs):

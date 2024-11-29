@@ -3,7 +3,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 import google.generativeai as genai
 import mimetypes
-from core.geminiIA.mathematics.models import model
+from core.geminiIA.mathematics.config_ia import model
 
 @receiver(post_save, sender=MathAI)
 def SendResponse(instance, sender, created, **kwargs):
