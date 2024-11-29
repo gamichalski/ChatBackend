@@ -1,6 +1,8 @@
 import openai
 import os
 
+
+#Function that request in chatgpt
 def gptChat(prompt):
     try:
         response = openai.ChatCompletion.create(
