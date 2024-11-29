@@ -1,6 +1,7 @@
 from pathlib import Path
 import os 
 from dotenv import load_dotenv
+import openai
 
 load_dotenv()
 
@@ -10,6 +11,8 @@ MODE = os.getenv("MODE")
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", "False")
 ALLOWED_HOSTS = ["*"]
+openai.api_key = os.getenv('GPT_API_KEY')
+
 
 AUTH_USER_MODEL = "authUser.User"
 
@@ -23,13 +26,16 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     'core.authUser',
-    'core.geminiIA.language',
     'core.geminiIA.mathematics',
     'core.geminiIA.naturalscience',
     'core.geminiIA.humanscience',
     'core.geminiIA.textwriting',
+    'core.geminiIA.language',
+    "core.chatgptIA",
+    "core.cohereIA",
     'drf_spectacular',
     'django_filters',
+    'openai',
 ]
 
 
@@ -135,6 +141,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 PASSAGE_APP_ID = os.getenv("PASSAGE_APP_ID")
 PASSAGE_API_KEY = os.getenv("PASSAGE_API_KEY")
 PASSAGE_AUTH_STRATEGY = 2
+
+COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"

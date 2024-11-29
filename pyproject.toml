@@ -7,19 +7,21 @@ authors = [
     { name = "JonatasPeraza", email = "jonatassilvaperaza@gmail.com" },
     { name = "JaoTarzan", email = "joaovssouza@gmail.com" },
     { name = "Luan", email = "luansilva250807@gmail.com" },
-    { name = "Potassio", email = "potassio@gmail.com" },
+    { name = "kaubarros-24", email = "martinsbarroskaua@gmail.com" },
 ]
 dependencies = [
     "django>=5.1.3",
     "celery>=5.4.0",
     "django-cors-headers>=4.6.0",
     "djangorestframework>=3.15.2",
-    "python-dotenv>=1.0.1",
     "passage-identity>=2.5.0",
     "drf-spectacular>=0.27.2",
     "google-generativeai>=0.8.3",
     "django-filter>=24.3",
     "pillow>=11.0.0",
+    "openai==0.28",
+    "python-dotenv>=1.0.1",
+    "cohere>=5.12.0",
 ]
 requires-python = ">=3.12"
 readme = "README.md"
@@ -35,15 +37,21 @@ distribution = true
 
 
 [tool.pdm.scripts]
+r = "python3 manage.py runserver"
 dev = "python manage.py runserver"
 runserver = "python manage.py runserver"
 createsuperuser = "python manage.py createsuperuser"
 migrate = "python manage.py migrate"
 makemigrations = "python manage.py makemigrations"
 shell = "python manage.py shell"
+shellp = "python3 manage.py shell"
 test = "python manage.py test"
 startapp = "python manage.py startapp {args}"
 loaddata = "python manage.py loaddata {args}"
 dumpdata = "python manage.py dumpdata {args}"
 model = "python manage.py graph_models -a -g -o models.png"
 populate = "python manage.py populate"
+transfer_data = "python manage.py transfer_data"
+populate_dataset = "python manage.py populate_dataset"
+clear_backup_dataset = "python manage.py clear_dataset"
+generate_new_dataset = "python manage.py generate_new_dataset"
