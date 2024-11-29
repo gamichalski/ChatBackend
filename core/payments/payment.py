@@ -3,7 +3,7 @@ from django.conf import settings
 from core.payments.utils.verify import verify
 from core.payments.models import Payment as PaymentModel
 
-sdk = mercadopago.SDK(settings.MP_ACCESS_TOKEN)
+sdk = mercadopago.SDK(settings.MERCADO_PAGO_ACCESS_TOKEN)
 
 class Payment():
     
@@ -35,7 +35,7 @@ class Payment():
     
     def payment_pix(self, data):
         try:
-            verify.verify_pix_data(data)
+            # verify.verify_pix_data(data)
             payment = sdk.payment().create(data)
             return payment
         except Exception as e:

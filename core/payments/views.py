@@ -10,14 +10,20 @@ from core.payments.models import Payment as PaymentModel
 class PaymentViewSet(ModelViewSet):
 
 
-    queryset = Payment.objects.all()
+    queryset = PaymentModel.objects.all()
     serializer_class = PaymentSerializer
 
     def create(self, request, *args, **kwargs):
         try:
             data = request.data
-            payment = Payment()
-            payment = payment.create_payment(data)
+            payment2 = Payment()
+            print(data)
+            breakpoint()
+            
+            payment = payment2.create_payment(data)
+            print(payment)
+            breakpoint()
+
             PaymentModel.objects.create(
                 payment_id=payment.get("id"),
                 user=request.user,

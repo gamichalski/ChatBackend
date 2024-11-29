@@ -16,5 +16,10 @@ class PaymentSerializer(serializers.ModelSerializer):
             'status',
             'ticket_url',
             'instalments',
+            'issuer_id',
+            'payer_email',
+            'payment_method_id',
+            'paymnet_identification_type',
+            'payment_identification_number'
         ]
         read_only_fields = ["id", "payment_id", "status", "qrcode_key", "created_at", "updated_at", "date_expiration", "ticket_url"]
