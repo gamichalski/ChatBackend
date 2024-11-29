@@ -12,7 +12,8 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", "False")
 ALLOWED_HOSTS = ["*"]
 openai.api_key = os.getenv('GPT_API_KEY')
-print("api key", os.getenv('GPT_API_KEY'))
+
+MERCADO_PAGO_ACCESS_TOKEN = os.getenv("MERCADO_PAGO_ACCESS_TOKEN")
 
 AUTH_USER_MODEL = "authUser.User"
 
@@ -24,7 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "rest_framework",
+    'rest_framework',
     "corsheaders",
     'drf_spectacular',
     'django_filters',
@@ -36,7 +37,8 @@ INSTALLED_APPS = [
     'core.geminiIA.humanscience',
     'core.geminiIA.textwriting',
     'core.geminiIA.language',
-    "core.chatgptIA",
+    'core.chatgptIA',
+    'core.payments',
     "core.cohereIA",
 ]
 

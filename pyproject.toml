@@ -26,6 +26,7 @@ dependencies = [
     "pyjwt>=2.10.1",
     "daphne>=4.1.2",
     "channels-rabbitmq>=4.0.1",
+    "mercadopago>=2.2.3",
 ]
 requires-python = ">=3.12"
 readme = "README.md"
