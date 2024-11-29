@@ -4,5 +4,5 @@ from rest_framework.serializers import ModelSerializer
 class LanguagesAISerializer(ModelSerializer):
     class Meta:
         model = LanguagesAI
-        fields: list[str] = ['id', 'user', 'answer', 'response']
+        fields: list[str] = ['id', 'user', 'answer', 'response', 'cover']
         

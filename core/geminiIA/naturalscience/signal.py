@@ -1,11 +1,31 @@
 from .models import NaturalScienceAI
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from .config_ia import response
+import mimetypes
+import google.generativeai as genai
+from .config_ia import model
 
 @receiver(post_save, sender=NaturalScienceAI)
 def SendResponse(instance, sender, created, **kwargs):
     if created:
-        chat_response = response.send_message(instance.answer)
-        instance.response = chat_response.text
-        instance.save()
+        try: 
+            image_path = instance.cover.path if instance.cover else None
+            if image_path:
+                file_type = mimetypes.guess_type(image_path)
+                myfile = genai.upload_file(str(instance.cover), mime_type=str(file_type[0]))
+
+                if myfile and instance.answer:
+                    content = model.generate_content([myfile, instance.answer])
+                    instance.response = content.candidates[0].content.parts[0].text
+                else:
+                    content = model.generate_content([myfile, ""])
+                    instance.response = content.candidates[0].content.parts[0].text
+                myfile.delete()
+            else:
+                content = model.generate_content([instance.answer])
+                instance.response = content.candidates[0].content.parts[0].text
+            
+            instance.save()
+        except Exception as e:
+            instance.response = f"ERRO: {str(e)}"
+            instance.save()

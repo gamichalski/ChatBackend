@@ -6,5 +6,4 @@ from django_filters.rest_framework import DjangoFilterBackend
 class HumanScienceAIViewSet(ModelViewSet):
     queryset = HumanScienceAI.objects.all()
     serializer_class = HumanScienceAISerializer
-    filter_backends = [DjangoFilterBackend]
-    filter_backends = ('user', )
+   
