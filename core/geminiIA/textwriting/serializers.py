@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from .models import TextWritingAI
+from core.geminiIA.textwriting.models import TextWritingAI
 
 class TextWritingAISerializer(ModelSerializer):
     class Meta:
