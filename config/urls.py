@@ -32,7 +32,6 @@ from core.cohereIA.views import DatasetBIASViewSet, GenerateAndTrainModel, Class
 router.register("dataset", DatasetBIASViewSet)
 router.register("current-cohere-ia", CurrentCohereIAViewSet)
 
-router.register("users", UserViewSet)
 router.registry.extend(chat_router.registry)
 
 urlpatterns = [
