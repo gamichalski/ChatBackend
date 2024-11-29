@@ -1,8 +1,6 @@
 import openai
 import os
 
-openai.api_key = os.getenv('GPT_API_KEY')
-
 def gptChat(prompt):
     try:
         response = openai.ChatCompletion.create(
