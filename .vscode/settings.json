@@ -1,7 +1,8 @@
 {
     "python.REPL.enableREPLSmartSend": false,
     "python.analysis.extraPaths": [
-        "./__pypackages__/3.12/lib"
+        "./__pypackages__/3.12/lib",
+        "./__pypackages__/3.13/lib"
     ],
 
     "workbench.colorCustomizations": {
