@@ -12,7 +12,7 @@ class Chat(models.Model):
         GENERICA = 6, "Genérica"
     chat_name = models.CharField(max_length=255)
     ia = models.IntegerField(choices=SelectedIa.choices, null=True, blank=True)
-    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name="chat")
+    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name="chat", null=True, blank=True)
 
 class ChatMessage(models.Model):
     class TypeAuthor(models.IntegerChoices):
