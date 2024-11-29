@@ -27,7 +27,6 @@ router.register("genericAI", GenericAIAVIewSet, basename="genericAI")
 
 from core.cohereIA.views import DatasetBIASViewSet, GenerateAndTrainModel, ClassifyTextView, CurrentCohereIAViewSet
 
-router.register("users", UserViewSet)
 router.register("dataset", DatasetBIASViewSet)
 router.register("current-cohere-ia", CurrentCohereIAViewSet)
 
