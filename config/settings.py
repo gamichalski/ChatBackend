@@ -23,11 +23,12 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     'core.authUser',
-    'core.geminiIA.language',
     'core.geminiIA.mathematics',
     'core.geminiIA.naturalscience',
     'core.geminiIA.humanscience',
     'core.geminiIA.textwriting',
+    'core.geminiIA.language',
+    "core.chatgptIA"
     'drf_spectacular',
     'django_filters',
 ]
