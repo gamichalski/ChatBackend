@@ -5,8 +5,10 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 from core.authUser.views import UserViewSet
+from core.geminiIA.language.views import LanguageAIViewSet
 
 router.register("users", UserViewSet)
+router.register("languageAI", LanguageAIViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
