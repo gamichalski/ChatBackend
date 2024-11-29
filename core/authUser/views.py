@@ -5,7 +5,6 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import action
 from core.authUser.models import User
-
 from core.authUser.serializers import UserSerializer
 
 class UserViewSet(ModelViewSet):

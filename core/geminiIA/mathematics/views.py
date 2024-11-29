@@ -1,5 +1,5 @@
-from .serializers import MathAISerializer
-from .models import MathAI
+from core.geminiIA.mathematics.serializers import MathAISerializer
+from core.geminiIA.mathematics.models import MathAI
 from rest_framework.viewsets import ModelViewSet
 from django_filters.rest_framework import DjangoFilterBackend
 

@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from .models import MathAI
+from core.geminiIA.mathematics.models import MathAI
 
 class MathAISerializer(ModelSerializer):
     class Meta:

@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from .models import NaturalScienceAI
+from core.geminiIA.naturalscience.models import NaturalScienceAI
 
 class NaturalScienceAISerializer(ModelSerializer):
     class Meta:

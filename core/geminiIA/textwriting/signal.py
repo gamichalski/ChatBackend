@@ -1,9 +1,9 @@
-from .models import TextWritingAI
+from core.geminiIA.textwriting.models import TextWritingAI
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 import mimetypes
 import google.generativeai as genai
-from .config_ia import model, response
+from core.geminiIA.textwriting.config_ia import model, response
 
 @receiver(post_save, sender=TextWritingAI)
 def SendResponse(instance, sender, created, **kwargs):

@@ -1,3 +1,4 @@
 from django.contrib import admin
+from core.geminiIA.mathematics.models import MathAI
 
-# Register your models here.
+admin.site.register(MathAI)

@@ -1,7 +1,7 @@
-from .models import HumanScienceAI
+from core.geminiIA.humanscience.models import HumanScienceAI
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from .config_ia import model
+from core.geminiIA.humanscience.config_ia import model
 import google.generativeai as genai
 import mimetypes
 

@@ -1,3 +1,4 @@
 from django.contrib import admin
+from core.geminiIA.humanscience.models import HumanScienceAI
 
-# Register your models here.
+admin.site.register(HumanScienceAI)

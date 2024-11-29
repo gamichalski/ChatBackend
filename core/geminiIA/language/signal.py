@@ -1,9 +1,9 @@
-from .models import LanguagesAI
+from core.geminiIA.language.models import LanguagesAI
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 import mimetypes
 import google.generativeai as genai
-from .config_ia import model
+from core.geminiIA.language.models import model
 
 @receiver(post_save, sender=LanguagesAI)
 def SendResponse(instance, sender, created, **kwargs):

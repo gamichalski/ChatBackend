@@ -1,4 +1,4 @@
-from .models import HumanScienceAI
+from core.geminiIA.humanscience.models import HumanScienceAI
 from rest_framework.serializers import ModelSerializer
 
 class HumanScienceAISerializer(ModelSerializer):

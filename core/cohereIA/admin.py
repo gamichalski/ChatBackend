@@ -1,3 +1,5 @@
 from django.contrib import admin
+from core.cohereIA.models import CurrentCohereIA,  DatasetBIAS
 
-# Register your models here.
+admin.site.register(CurrentCohereIA)
+admin.site.register(DatasetBIAS)

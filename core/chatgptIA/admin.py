@@ -1,3 +1,4 @@
 from django.contrib import admin
+from core.chatgptIA.models import GenericAI
 
-# Register your models here.
+admin.site.register(GenericAI)

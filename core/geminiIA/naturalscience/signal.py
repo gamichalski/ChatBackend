@@ -1,9 +1,9 @@
-from .models import NaturalScienceAI
+from core.geminiIA.naturalscience.models import NaturalScienceAI
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 import mimetypes
 import google.generativeai as genai
-from .config_ia import model
+from core.geminiIA.naturalscience.config_ia import model
 
 @receiver(post_save, sender=NaturalScienceAI)
 def SendResponse(instance, sender, created, **kwargs):

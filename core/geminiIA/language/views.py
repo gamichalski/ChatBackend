@@ -1,5 +1,5 @@
-from .serializers import LanguagesAISerializer
-from .models import LanguagesAI
+from core.geminiIA.language.serializers import LanguagesAISerializer
+from core.geminiIA.language.models import LanguagesAI
 from rest_framework.viewsets import ModelViewSet
 from django_filters.rest_framework import DjangoFilterBackend
 
