@@ -25,8 +25,15 @@ router.register("humanscienceAI", HumanScienceAIViewSet)
 router.register("textwritingAI", TextWritingAIViewSet)
 router.register("genericAI", GenericAIAVIewSet, basename="genericAI")
 
+from core.cohereIA.views import DatasetBIASViewSet, GenerateAndTrainModel, ClassifyTextView, CurrentCohereIAViewSet
+
+router.register("users", UserViewSet)
+router.register("dataset", DatasetBIASViewSet)
+router.register("current-cohere-ia", CurrentCohereIAViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/", include(router.urls)),
+    path('generate-and-train/', GenerateAndTrainModel.as_view(), name='generate_and_train_model'),
+    path('classify/', ClassifyTextView.as_view(), name='classify'),
 ]

@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'core.geminiIA.textwriting',
     'core.geminiIA.language',
     "core.chatgptIA",
+    "core.cohereIA",
     'drf_spectacular',
     'django_filters',
     'openai',
@@ -137,6 +138,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 PASSAGE_APP_ID = os.getenv("PASSAGE_APP_ID")
 PASSAGE_API_KEY = os.getenv("PASSAGE_API_KEY")
 PASSAGE_AUTH_STRATEGY = 2
+
+COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
