@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'core.geminiIA.language',
     'core.geminiIA.mathematics',
     'core.geminiIA.naturalscience',
+    'core.geminiIA.humanscience',
     'drf_spectacular',
     'django_filters',
 ]

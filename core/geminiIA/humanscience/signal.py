@@ -1,9 +1,9 @@
-from .models import LanguagesAI
+from .models import HumanScienceAI
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from .config_ia import response
 
-@receiver(post_save, sender=LanguagesAI)
+@receiver(post_save, sender=HumanScienceAI)
 def SendResponse(instance, sender, created, **kwargs):
     if created:
         chat_response = response.send_message(instance.answer)
