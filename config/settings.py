@@ -26,6 +26,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "rest_framework",
     "corsheaders",
+    'drf_spectacular',
+    'django_filters',
+    'openai',
+    'core.chat',
     'core.authUser',
     'core.geminiIA.mathematics',
     'core.geminiIA.naturalscience',
@@ -34,11 +38,6 @@ INSTALLED_APPS = [
     'core.geminiIA.language',
     "core.chatgptIA",
     "core.cohereIA",
-    'drf_spectacular',
-    'django_filters',
-    'openai',
-    'core.chat',
-    'core.bias'
 ]
 
 
@@ -79,7 +78,10 @@ ASGI_APPLICATION = "config.asgi.application"
 
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer",
+        "BACKEND": "channels_rabbitmq.core.RabbitmqChannelLayer",
+         "CONFIG": {
+            "host": "amqp://admin:admin@localhost:5672/",
+        },
     },
 }
 
