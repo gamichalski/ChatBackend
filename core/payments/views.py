@@ -28,16 +28,16 @@ class PaymentViewSet(ModelViewSet):
             PaymentModel.objects.create(
                 payment_id=response["response"].get("id"),
                 user=User.objects.get(id=data.get("user")),
-                transaction_amount=response["response"].get("transaction_amount"),
+                transaction_amount=data.get("transaction_amount"),
                 date_expiration=response["response"].get("date_expiration"),
-                instalments=response["response"].get("instalments"),
+                instalments=data.get("installments"),
                 status=response["response"].get("status"),
                 qrcode_key=response["response"].get("qrcode_key"),
                 ticket_url=response["response"].get("ticket_url")
             )
             return Response(response)
         except Exception as e:
-            return Response({"error": str(e)}, status=500)
+            return Response({"error": str(e)}, status=400)
 
 
     def update(self, request, *args, **kwargs):

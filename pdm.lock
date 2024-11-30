@@ -6,11 +6,15 @@ groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
 <<<<<<< HEAD
+<<<<<<< HEAD
 content_hash = "sha256:a34723805bcc43605b1969b75c14d3dbd0020fda90d077dd2dd2ab73542926d5"
 =======
 content_hash = "sha256:90f926e3a43c459015eccb1ead511285822c03a5924376cda8d066daa9113125"
 
 >>>>>>> 7b815f7 (FEAT: Adicionar suporte a pagamentos com Mercado Pago e atualizar modelos e serializers [Refs: #19])
+=======
+content_hash = "sha256:eaac547f500376baa9468c3caa087e5f01f84cc483cf535978b733a81387ec99"
+>>>>>>> f047a8b (FEAT: Corrigir atribuição de valores no PaymentViewSet e ajustar status de erro na resposta)
 
 [[metadata.targets]]
 requires_python = ">=3.12"
