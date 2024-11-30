@@ -15,10 +15,21 @@ class AnswerFilter(django_filters.FilterSet):
         model = Answer
         fields = ['user_id']
 
-# Create your views here.
+
+class ChatFilter(django_filters.FilterSet):
+    user_id = django_filters.NumberFilter(field_name="user__id")
+
+    class Meta:
+        model = Chat
+        fields = ['user_id']
+
+
 class ChatViewSet(ModelViewSet):
+
     queryset = Chat.objects.all()
     serializer_class = ChatSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = ChatFilter
 
 class AnswerViewSet(ModelViewSet):
     queryset = Answer.objects.all()
