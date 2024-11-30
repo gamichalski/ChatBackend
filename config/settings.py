@@ -12,7 +12,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", "False")
 ALLOWED_HOSTS = ["*"]
 openai.api_key = os.getenv('GPT_API_KEY')
-
+print("api key", os.getenv('GPT_API_KEY'))
 
 AUTH_USER_MODEL = "authUser.User"
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django_filters',
     'openai',
     'core.chat',
+    'core.bias'
 ]
 
 

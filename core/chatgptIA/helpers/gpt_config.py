@@ -11,6 +11,7 @@ def gptChat(prompt):
             max_tokens=200,
             temperature=0.7
         )
+        print(response)
         return response['choices'][0]['message']['content']
     except Exception as e:
         print(f"There's a error: {e}")
