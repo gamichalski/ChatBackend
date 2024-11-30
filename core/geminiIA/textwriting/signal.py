@@ -4,6 +4,7 @@ from django.dispatch import receiver
 import mimetypes
 import google.generativeai as genai
 from .config_ia import model, response
+from core.chat.models import Answer, Chat
 
 @receiver(post_save, sender=TextWritingAI)
 def SendResponse(instance, sender, created, **kwargs):
@@ -24,6 +25,8 @@ def SendResponse(instance, sender, created, **kwargs):
             else:
                 content = response.send_message(instance.answer)
                 instance.response = content.text
+                chat, created = Chat.objects.get_or_create(chat_name=instance.answer, defaults={"user": instance.user, "ia": 5})
+                answer = Answer.objects.create(chat=chat, answer=instance.answer, response=instance.response)
             
             instance.save()
         except Exception as e:
