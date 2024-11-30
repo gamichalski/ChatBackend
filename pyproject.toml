@@ -22,8 +22,9 @@ dependencies = [
     "openai==0.28",
     "python-dotenv>=1.0.1",
     "cohere>=5.12.0",
-    "channels[daphne]>=4.2.0",
+    "channels>=4.2.0",
     "pyjwt>=2.10.1",
+    "channels-rabbitmq>=4.0.1",
 ]
 requires-python = ">=3.12"
 readme = "README.md"
@@ -55,3 +56,4 @@ transfer_data = "python manage.py transfer_data"
 populate_dataset = "python manage.py populate_dataset"
 clear_backup_dataset = "python manage.py clear_dataset"
 generate_new_dataset = "python manage.py generate_new_dataset"
+qual = "python manage.py qualquer"

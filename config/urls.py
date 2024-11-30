@@ -10,6 +10,7 @@ from core.chat.router import router as chat_router
 
 from rest_framework.routers import DefaultRouter
 
+from core.bias.views import ClassifyMessageView
 
 router = DefaultRouter()
 from core.authUser.views import UserViewSet
@@ -18,6 +19,7 @@ from core.geminiIA.mathematics.views import MathAIViewSet
 from core.geminiIA.naturalscience.views import NaturalScienceAIViewSet
 from core.geminiIA.humanscience.views import HumanScienceAIViewSet
 from core.geminiIA.textwriting.views import TextWritingAIViewSet
+from core.chat.views import AnswerViewSet
 
 router.register("users", UserViewSet)
 router.register("languageAI", LanguageAIViewSet)
@@ -26,6 +28,7 @@ router.register("naturalscienceAI", NaturalScienceAIViewSet)
 router.register("humanscienceAI", HumanScienceAIViewSet)
 router.register("textwritingAI", TextWritingAIViewSet)
 router.register("genericAI", GenericAIAVIewSet, basename="genericAI")
+router.register("answers", AnswerViewSet)
 
 from core.cohereIA.views import DatasetBIASViewSet, GenerateAndTrainModel, ClassifyTextView, CurrentCohereIAViewSet
 
@@ -39,4 +42,5 @@ urlpatterns = [
     path("api/", include(router.urls)),
     path('generate-and-train/', GenerateAndTrainModel.as_view(), name='generate_and_train_model'),
     path('classify/', ClassifyTextView.as_view(), name='classify'),
+    path("classify_message/", ClassifyMessageView.as_view(), name="classify_message"),
 ]

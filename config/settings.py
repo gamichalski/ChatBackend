@@ -12,12 +12,11 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", "False")
 ALLOWED_HOSTS = ["*"]
 openai.api_key = os.getenv('GPT_API_KEY')
-
+print("api key", os.getenv('GPT_API_KEY'))
 
 AUTH_USER_MODEL = "authUser.User"
 
 INSTALLED_APPS = [
-    "daphne",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -26,6 +25,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "rest_framework",
     "corsheaders",
+    'drf_spectacular',
+    'django_filters',
+    'openai',
+    'core.chat',
     'core.authUser',
     'core.geminiIA.mathematics',
     'core.geminiIA.naturalscience',
@@ -34,10 +37,6 @@ INSTALLED_APPS = [
     'core.geminiIA.language',
     "core.chatgptIA",
     "core.cohereIA",
-    'drf_spectacular',
-    'django_filters',
-    'openai',
-    'core.chat',
 ]
 
 
@@ -73,14 +72,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
-ASGI_APPLICATION = "config.asgi.application"
-
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer",
-    },
-}
 
 DATABASES = {
     'default': {
