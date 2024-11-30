@@ -10,6 +10,7 @@ from core.chat.router import router as chat_router
 
 from rest_framework.routers import DefaultRouter
 
+from core.bias.views import ClassifyMessageView
 
 router = DefaultRouter()
 from core.authUser.views import UserViewSet
@@ -39,4 +40,5 @@ urlpatterns = [
     path("api/", include(router.urls)),
     path('generate-and-train/', GenerateAndTrainModel.as_view(), name='generate_and_train_model'),
     path('classify/', ClassifyTextView.as_view(), name='classify'),
+    path("classify_message/", ClassifyMessageView.as_view(), name="classify_message"),
 ]
