@@ -7,7 +7,6 @@ class ChatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Chat
         fields = ["id","chat_name", "ia", "user"]
-        depth = 2
 
 class AnswerSerializer(serializers.ModelSerializer):
 
