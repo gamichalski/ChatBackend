@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.shortcuts import redirect
 from django.urls import path, include
 from core.chatgptIA.views import GenericAIAVIewSet
 
@@ -14,7 +15,7 @@ from core.bias.views import ClassifyMessageView
 
 router = DefaultRouter()
 from core.authUser.views import UserViewSet
-from core.payments.views import PaymentViewSet
+from core.payments.views import (PaymentViewSet, webhook_receiver)
 from core.geminiIA.language.views import LanguageAIViewSet
 from core.geminiIA.mathematics.views import MathAIViewSet
 from core.geminiIA.naturalscience.views import NaturalScienceAIViewSet
@@ -43,4 +44,6 @@ urlpatterns = [
     path('generate-and-train/', GenerateAndTrainModel.as_view(), name='generate_and_train_model'),
     path('classify/', ClassifyTextView.as_view(), name='classify'),
     path("classify_message/", ClassifyMessageView.as_view(), name="classify_message"),
+    path('api/webhook/', webhook_receiver, name='webhook_receiver'),
+    path('', lambda request: redirect('api/', permanent=True)),
 ]

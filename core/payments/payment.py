@@ -35,8 +35,19 @@ class Payment():
     
     def payment_pix(self, data):
         try:
-            # verify.verify_pix_data(data)
-            payment = sdk.payment().create(data)
+            verify.verify_pix_data(data)
+            payment = sdk.payment().create({
+                "transaction_amount": int(data.get("transaction_amount")),
+                "description": data.get("description"),
+                "payment_method_id": "pix",
+                "payer": {
+                    "email": data.get("payer_email"),
+                    "identification": {
+                        "type": data.get("payer_identification_type"),
+                        "number": data.get("payer_identification_number")
+                    }
+                }
+            })
             return payment
         except Exception as e:
             return e
@@ -44,7 +55,25 @@ class Payment():
     def payment_card(self, data):
         try:
             verify.verify_card_data(data)
-            payment = sdk.payment().create(data)
+            rapaiz = {
+                "transaction_amount": float(data.get("transaction_amount")),
+                "payment_method_id": data.get("payment_method_id"),
+                "payer": {
+                    "email": data.get("payment_email"),
+                    "identification": {
+                        "type": data.get("payment_identification_type"),
+                        "number": data.get("payment_identification_number")
+                    },
+                    "first_name": data.get("first_name"),
+                },
+                "issuer_id": data.get("issuer_id"),
+                "installments": data.get("installments"),
+                "token": data.get("token"),
+                "description": data.get("description"),
+                
+            }
+            print(rapaiz)
+            payment = sdk.payment().create(rapaiz)
             return payment
         except Exception as e:
             return e

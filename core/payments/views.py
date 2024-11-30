@@ -6,6 +6,7 @@ from core.payments.serializer import PaymentSerializer
 from core.payments.payment import Payment
 from django.http import JsonResponse
 from core.payments.models import Payment as PaymentModel
+from core.authUser.models import User
 
 class PaymentViewSet(ModelViewSet):
 
@@ -16,27 +17,28 @@ class PaymentViewSet(ModelViewSet):
     def create(self, request, *args, **kwargs):
         try:
             data = request.data
-            payment2 = Payment()
+            if data.get("installments") is None:
+                data['installments'] = 1
+                
+            payment = Payment()
             print(data)
-            breakpoint()
-            
-            payment = payment2.create_payment(data)
-            print(payment)
-            breakpoint()
+            response = payment.create_payment(data)
+            print(response)
 
             PaymentModel.objects.create(
-                payment_id=payment.get("id"),
-                user=request.user,
-                transaction_amount=payment.get("transaction_amount"),
-                date_expiration=payment.get("date_expiration"),
-                instalments=payment.get("instalments"),
-                status=payment.get("status"),
-                qrcode_key=payment.get("qrcode_key"),
-                ticket_url=payment.get("ticket_url")
+                payment_id=response["response"].get("id"),
+                user=User.objects.get(id=data.get("user")),
+                transaction_amount=response["response"].get("transaction_amount"),
+                date_expiration=response["response"].get("date_expiration"),
+                instalments=response["response"].get("instalments"),
+                status=response["response"].get("status"),
+                qrcode_key=response["response"].get("qrcode_key"),
+                ticket_url=response["response"].get("ticket_url")
             )
-            return Response(payment)
+            return Response(response)
         except Exception as e:
-            return Response(e)
+            return Response({"error": str(e)}, status=500)
+
 
     def update(self, request, *args, **kwargs):
         try:
@@ -45,7 +47,7 @@ class PaymentViewSet(ModelViewSet):
             payment = payment.update_payment(data.get("payment_id"), data)
             return Response(payment)
         except Exception as e:
-            return Response(e)
+            return Response({"error": str(e)}, status=500)
 
     def get_payment(self, request, *args, **kwargs):
         try:
@@ -54,7 +56,8 @@ class PaymentViewSet(ModelViewSet):
             payment = payment.get_payment(payment_id)
             return Response(payment)
         except Exception as e:
-            return Response(e)
+            return Response({"error": str(e)}, status=500)
+
 
 @csrf_exempt
 def webhook_receiver(request):
