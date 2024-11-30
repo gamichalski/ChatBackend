@@ -39,7 +39,7 @@ class ClassifyMessageView(APIView):
                     prediction = "Ciencias Exatas"
                 elif ia_type == 3:
                     prediction = "Ciencias da natureza"
-                elif ia_type == 5:
+                elif ia_type == 4:
                     prediction = "Ciencias Humanas"
                 elif ia_type == 6:
                     prediction = "Genérico"
@@ -71,7 +71,7 @@ class ClassifyMessageView(APIView):
                 elif prediction == "Ciencias da natureza":
                     ia_type = 3
                 elif prediction == "Ciencias Humanas":
-                    ia_type = 5
+                    ia_type = 4
                 elif prediction == "Genérico":
                     ia_type = 6
                 else:

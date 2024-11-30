@@ -15,6 +15,13 @@ class AnswerFilter(django_filters.FilterSet):
         model = Answer
         fields = ['user_id']
 
+class AnswerFilterChat(django_filters.FilterSet):
+    chat_id = django_filters.NumberFilter(field_name="chat__id")
+
+    class Meta:
+        model = Answer
+        fields = ['chat_id']
+
 
 class ChatFilter(django_filters.FilterSet):
     user_id = django_filters.NumberFilter(field_name="user__id")
@@ -30,6 +37,15 @@ class ChatViewSet(ModelViewSet):
     serializer_class = ChatSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = ChatFilter
+
+class AnswerFilter(django_filters.FilterSet):
+    chat_id = django_filters.NumberFilter(field_name="chat__id")
+    user_id = django_filters.NumberFilter(field_name="chat__user__id")
+
+    class Meta:
+        model = Answer
+        fields = ['chat_id', 'user_id']
+
 
 class AnswerViewSet(ModelViewSet):
     queryset = Answer.objects.all()
