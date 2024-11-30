@@ -14,18 +14,17 @@ class Chat(models.Model):
     ia = models.IntegerField(choices=SelectedIa.choices, null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.PROTECT, related_name="chat", null=True, blank=True)
 
-class ChatMessage(models.Model):
-    class TypeAuthor(models.IntegerChoices):
-        USER = 1, "User"
-        IA = 2, "Ia"
-    author_type = models.IntegerField(choices=TypeAuthor, default=TypeAuthor.IA)
-    body = models.TextField()
+class Answer(models.Model):
+    answer = models.TextField()
+    response = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
-    chat = models.ForeignKey(Chat, on_delete=models.PROTECT, related_name="messages")
-
+    chat = models.ForeignKey(Chat, on_delete=models.PROTECT, related_name="asnwer")
+    
     @property
-    def author(self):
-        if self.author_type == 1:
-            return self.chat.user
-        else:
-            return self.chat.ia
+    def theme(self):
+        return self.chat.ia
+
+
+
+
+

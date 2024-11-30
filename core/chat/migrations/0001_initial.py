@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='ChatMessage',
+            name='Answer',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('author_type', models.IntegerField(choices=[(1, 'User'), (2, 'Ia')], default=2)),
