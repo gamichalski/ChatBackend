@@ -19,6 +19,7 @@ from core.geminiIA.mathematics.views import MathAIViewSet
 from core.geminiIA.naturalscience.views import NaturalScienceAIViewSet
 from core.geminiIA.humanscience.views import HumanScienceAIViewSet
 from core.geminiIA.textwriting.views import TextWritingAIViewSet
+from core.chat.views import AnswerViewSet
 
 router.register("users", UserViewSet)
 router.register("languageAI", LanguageAIViewSet)
@@ -27,6 +28,7 @@ router.register("naturalscienceAI", NaturalScienceAIViewSet)
 router.register("humanscienceAI", HumanScienceAIViewSet)
 router.register("textwritingAI", TextWritingAIViewSet)
 router.register("genericAI", GenericAIAVIewSet, basename="genericAI")
+router.register("answers", AnswerViewSet)
 
 from core.cohereIA.views import DatasetBIASViewSet, GenerateAndTrainModel, ClassifyTextView, CurrentCohereIAViewSet
 

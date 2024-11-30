@@ -17,7 +17,6 @@ print("api key", os.getenv('GPT_API_KEY'))
 AUTH_USER_MODEL = "authUser.User"
 
 INSTALLED_APPS = [
-    "daphne",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -73,17 +72,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
-ASGI_APPLICATION = "config.asgi.application"
-
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_rabbitmq.core.RabbitmqChannelLayer",
-         "CONFIG": {
-            "host": "amqp://admin:admin@localhost:5672/",
-        },
-    },
-}
 
 DATABASES = {
     'default': {
