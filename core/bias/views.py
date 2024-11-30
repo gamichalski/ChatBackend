@@ -129,7 +129,6 @@ class ClassifyMessageView(APIView):
                 "chat": selected_chat
             }
 
-            # Salvar a resposta no banco de dados
             output_data = Answer.objects.create(**message_data)
 
             print(output_data)
