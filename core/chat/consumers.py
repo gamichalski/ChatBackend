@@ -31,6 +31,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             if user_type == 1:
                 await sync_to_async(Chat.objects.filter(chat_name=self.room_group_name).update)(user=user)
 
+
             # Creating the message registry
             message = await sync_to_async(ChatMessage.objects.create)(
                 author_type = user_type,
